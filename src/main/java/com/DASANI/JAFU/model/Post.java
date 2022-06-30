@@ -21,7 +21,7 @@ public class Post {
 	@Column(name="postID")
     private Long postID;
 	
-	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "userID", nullable = false)
     private User user;
 
@@ -48,6 +48,26 @@ public class Post {
 	
 	@Column(name="date")
 	private Date date;
+	
+	private String username;
+	private String phoneNum;
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
 
 	public Long getPostID() {
 		return postID;

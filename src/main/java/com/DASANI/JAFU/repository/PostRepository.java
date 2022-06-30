@@ -17,4 +17,6 @@ public interface PostRepository extends JpaRepository<Post, Long>{
 
 	@Query(value = "SELECT * FROM post  WHERE groupID = :groupID && userID = :userID", nativeQuery = true)
 	public List<Post> findByUserIDAndGroupID(@Param("groupID") Long groupID, @Param("userID") Long userID);
+	
+	
 }
