@@ -32,6 +32,7 @@ public class UserController {
     //Create User
     @RequestMapping(value="/register", method=RequestMethod.POST)
     public User createUser(@RequestBody User user) {
+
         return userService.createUser(user);
     }
 

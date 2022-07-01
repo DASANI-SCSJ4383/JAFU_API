@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DASANI.JAFU.model.Post;
-import com.DASANI.JAFU.model.User;
 import com.DASANI.JAFU.service.PostService;
 
 @RestController
