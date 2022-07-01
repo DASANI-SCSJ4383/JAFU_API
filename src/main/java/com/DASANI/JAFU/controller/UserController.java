@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DASANI.JAFU.model.User;
@@ -26,23 +25,13 @@ public class UserController {
 
     //Authenticate
     @RequestMapping(value="/login/{phoneNum}/{password}", method=RequestMethod.GET)
-    public String authenticate(@PathVariable(value = "phoneNum") String phoneNum, @PathVariable(value = "password") String password) {
-    	User user = userService.Authenticate(phoneNum, password);
-    	
-    	boolean isAuthenticate = user != null;
-    	
-    	if(isAuthenticate) {
-    		return user.toString();
-    	}
-    	else {
-    		return "failed";
-    	}
+    public User authenticate(@PathVariable(value = "phoneNum") String phoneNum, @PathVariable(value = "password") String password) {
+		return userService.Authenticate(phoneNum, password);
     }
     
     //Create User
     @RequestMapping(value="/register", method=RequestMethod.POST)
-    public User createUser(@RequestParam String username, @RequestParam String phoneNum, @RequestParam String password) {
-    	User user = new User(username,password, "+" + phoneNum.replace(" ", ""));
+    public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
