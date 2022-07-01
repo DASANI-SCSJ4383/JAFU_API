@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DASANI.JAFU.model.Post;
-import com.DASANI.JAFU.model.User;
 import com.DASANI.JAFU.repository.PostRepository;
 
 @Service

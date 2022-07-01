@@ -16,6 +16,17 @@ import javax.persistence.Table;
 @Table(name = "post")
 public class Post {
 	
+	public Post() {
+		super();
+	}
+
+	public Post(String title, String price, String description) {
+		super();
+		this.title = title;
+		this.price = price;
+		this.description = description;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="postID")

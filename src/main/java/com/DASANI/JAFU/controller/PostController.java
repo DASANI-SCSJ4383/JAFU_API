@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DASANI.JAFU.model.Post;
-import com.DASANI.JAFU.model.User;
 import com.DASANI.JAFU.service.PostService;
 
 @RestController
@@ -34,7 +33,8 @@ public class PostController {
     }
     
     @RequestMapping(value="/editPost/{id}", method=RequestMethod.PUT)
-    public String editPost(@PathVariable(value = "id") Long id, @RequestBody Post post) {
+    public String editPost(@PathVariable(value = "id") Long id, @RequestParam String title, @RequestParam String price, @RequestParam String description) {
+    	Post post = new Post(title, price, description);
     	postService.updatePost(id, post);
     	return "success";
     }
